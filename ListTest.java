@@ -1,5 +1,6 @@
 /**
- * JUnit Test Suite for given List data structure, based on the ADT from OpenDSA.
+ * JUnit Test Suite for given List data structure,
+ * based on the ADT from OpenDSA.
  */
 
 import static org.junit.Assert.assertEquals;
@@ -18,32 +19,30 @@ import org.junit.Test;
 public class ListTest {
 
     static CList<Integer> c;
-    static final int[] values = {1, 2, 3, 4, 5};
+    static final int[] VALUES = {1, 2, 3, 4, 5};
 
     @BeforeClass
     public static void init() {
         c = new CList<Integer>();
-        //lstr = new CList<String>();
     }
 
     @Before
-    public void setup() { // dependent on clear being good
+    public void setup() { // dependent on clear and append working
         c.clear();
-        for (int i = 0; i < values.length; i++) {
-            c.append(values[i]); // assume append works
+        for (int i = 0; i < VALUES.length; i++) {
+            c.append(VALUES[i]);
         }
-        //lstr.clear();
     }
 
     @Test
     public void testClearEmptyList() {
         c.clear();
-        assertEquals(0, c.length()); // assume length works
+        assertEquals(0, c.length());
     }
 
     @Test
     public void testClearNonEmptyList() {
-        assertNotSame(0, c.length()); // assume length works
+        assertNotSame(0, c.length());
         c.clear();
         assertEquals(0, c.length());
     }
@@ -62,22 +61,22 @@ public class ListTest {
 
     @Test
     public void testInsertAtFront() {
-        assertEquals(0, c.currPos()); // assume currPos works
-        assertEquals(values.length, c.length());
+        assertEquals(0, c.currPos());
+        assertEquals(VALUES.length, c.length());
         c.insert(6);
         assertEquals(0, c.currPos());
-        assertEquals(values.length + 1, c.length());
-        assertEquals(6, (int) c.getValue()); // assume getValue works
+        assertEquals(VALUES.length + 1, c.length());
+        assertEquals(6, (int) c.getValue());
     }
 
     @Test
     public void testInsertAtMiddle() {
         c.moveToPos(3);
         assertEquals(3, c.currPos());
-        assertEquals(values.length, c.length());
+        assertEquals(VALUES.length, c.length());
         c.insert(6);
         assertEquals(3, c.currPos());
-        assertEquals(values.length + 1, c.length());
+        assertEquals(VALUES.length + 1, c.length());
         assertEquals(6, (int) c.getValue());
     }
 
@@ -85,10 +84,10 @@ public class ListTest {
     public void testInsertAtEnd() {
         c.moveToPos(c.length() - 1);
         assertEquals(c.length() - 1, c.currPos());
-        assertEquals(values.length, c.length());
+        assertEquals(VALUES.length, c.length());
         c.insert(6);
         assertEquals(c.length() - 2, c.currPos());
-        assertEquals(values.length + 1, c.length());
+        assertEquals(VALUES.length + 1, c.length());
         assertEquals(6, (int) c.getValue());
     }
 
@@ -104,22 +103,22 @@ public class ListTest {
 
     @Test
     public void testAppendAtFront() {
-        assertEquals(0, c.currPos()); // assume currPos works
-        assertEquals(values.length, c.length());
+        assertEquals(0, c.currPos());
+        assertEquals(VALUES.length, c.length());
         c.append(6);
         assertEquals(0, c.currPos());
-        assertEquals(values.length + 1, c.length());
-        assertEquals(1, (int) c.getValue()); // assume getValue works
+        assertEquals(VALUES.length + 1, c.length());
+        assertEquals(1, (int) c.getValue());
     }
 
     @Test
     public void testAppendAtMiddle() {
         c.moveToPos(3);
         assertEquals(3, c.currPos());
-        assertEquals(values.length, c.length());
+        assertEquals(VALUES.length, c.length());
         c.append(6);
         assertEquals(3, c.currPos());
-        assertEquals(values.length + 1, c.length());
+        assertEquals(VALUES.length + 1, c.length());
         assertEquals(4, (int) c.getValue());
     }
 
@@ -127,10 +126,10 @@ public class ListTest {
     public void testAppendAtEnd() {
         c.moveToPos(c.length() - 1);
         assertEquals(c.length() - 1, c.currPos());
-        assertEquals(c.length(), values.length);
+        assertEquals(c.length(), VALUES.length);
         c.append(6);
         assertEquals(c.length() - 2, c.currPos());
-        assertEquals(values.length + 1, c.length());
+        assertEquals(VALUES.length + 1, c.length());
         assertEquals(5, (int) c.getValue());
     }
 
@@ -145,11 +144,11 @@ public class ListTest {
 
     @Test
     public void testRemoveAtFront() {
-        assertEquals(0, c.currPos()); // assume currPos works
-        assertEquals(values.length, c.length());
+        assertEquals(0, c.currPos());
+        assertEquals(VALUES.length, c.length());
         assertEquals(1, (int) c.remove());
         assertEquals(0, c.currPos());
-        assertEquals(values.length - 1, c.length());
+        assertEquals(VALUES.length - 1, c.length());
         assertEquals(2, (int) c.getValue());
     }
 
@@ -157,10 +156,10 @@ public class ListTest {
     public void testRemoveAtMiddle() {
         c.moveToPos(3);
         assertEquals(3, c.currPos());
-        assertEquals(values.length, c.length());
+        assertEquals(VALUES.length, c.length());
         assertEquals(4, (int) c.remove());
         assertEquals(3, c.currPos());
-        assertEquals(values.length - 1, c.length());
+        assertEquals(VALUES.length - 1, c.length());
         assertEquals(5, (int) c.getValue());
     }
 
@@ -168,10 +167,10 @@ public class ListTest {
     public void testRemoveAtEnd() {
         c.moveToPos(c.length() - 1);
         assertEquals(c.length() - 1, c.currPos());
-        assertEquals(values.length, c.length());
+        assertEquals(VALUES.length, c.length());
         assertEquals(5, (int) c.remove());
         assertEquals(0, c.currPos());
-        assertEquals(values.length - 1, c.length());
+        assertEquals(VALUES.length - 1, c.length());
         assertEquals(1, (int) c.getValue());
     }
 
