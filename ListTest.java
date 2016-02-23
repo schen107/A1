@@ -1,16 +1,18 @@
 /**
  * JUnit Test Suite for given List data structure,
  * based on the ADT from OpenDSA.
+ *
+ * Steven Chen (schen107) and Inez Lam (ilam1)
+ * EN.600.226.02 Data Structures Section 2
+ * February 22, 2016
+ *
  */
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
 
 import org.junit.BeforeClass;
 import org.junit.Before;

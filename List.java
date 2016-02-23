@@ -9,6 +9,11 @@
  * be a valid position of length().]
  *
  * @param <T> the type of the List
+ *
+ * Steven Chen (schen107) and Inez Lam (ilam1)
+ * EN.600.226.02 Data Structures Section 2
+ * February 22, 2016
+ *
  */
 public interface List<T> {
 
